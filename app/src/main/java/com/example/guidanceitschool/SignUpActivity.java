@@ -6,6 +6,14 @@ import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.guidanceitschool.database.User;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.schedulers.Schedulers;
+
 public class SignUpActivity extends AppCompatActivity {
 
     private EditText emailEditText;
@@ -13,11 +21,26 @@ public class SignUpActivity extends AppCompatActivity {
     private EditText passwordEditText;
     private Button signUpButton;
 
+    private List<User> users = new ArrayList();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
         initViews();
+        initData();
+    }
+
+    private void initData() {
+        App.instance
+                .getAppDatabase()
+                .userDao()
+                .getUsers()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(users -> {
+                    this.users = users;
+                });
     }
 
     private void initViews() {
@@ -27,7 +50,16 @@ public class SignUpActivity extends AppCompatActivity {
         signUpButton = findViewById(R.id.sign_up_button);
 
         signUpButton.setOnClickListener(v -> {
+            String email = emailEditText.getText().toString();
+            String name = nameEditText.getText().toString();
+            String password = passwordEditText.getText().toString();
 
+            User user = new User(email, name, password);
+            if (!users.contains(user)) {
+                App.instance.getAppDatabase().userDao().saveUser(user);
+            } else {
+                // TODO Error когда такой пользователь уже есть в БД
+            }
         });
     }
 }
