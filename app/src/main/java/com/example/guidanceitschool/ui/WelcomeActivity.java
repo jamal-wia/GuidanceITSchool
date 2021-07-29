@@ -1,4 +1,4 @@
-package com.example.guidanceitschool;
+package com.example.guidanceitschool.ui;
 
 import android.os.Bundle;
 import android.widget.Button;
@@ -6,6 +6,8 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.guidanceitschool.R;
 
 public class WelcomeActivity extends AppCompatActivity {
 

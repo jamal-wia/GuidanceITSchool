@@ -1,8 +1,10 @@
-package com.example.guidanceitschool;
+package com.example.guidanceitschool.ui;
 
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.guidanceitschool.R;
 
 public class MainActivity extends AppCompatActivity {
 

@@ -1,11 +1,14 @@
-package com.example.guidanceitschool;
+package com.example.guidanceitschool.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.guidanceitschool.App;
+import com.example.guidanceitschool.R;
 import com.example.guidanceitschool.database.User;
 
 import java.util.ArrayList;
@@ -57,6 +60,10 @@ public class SignUpActivity extends AppCompatActivity {
             User user = new User(email, name, password);
             if (!users.contains(user)) {
                 App.instance.getAppDatabase().userDao().saveUser(user);
+
+                Intent intent = new Intent(this, HelloActivity.class);
+                intent.putExtra("name", name);
+                startActivity(intent);
             } else {
                 // TODO Error когда такой пользователь уже есть в БД
             }
