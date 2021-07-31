@@ -1,5 +1,6 @@
 package com.example.guidanceitschool.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
@@ -27,6 +28,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
         signUpButton.setOnClickListener(v -> {
             // TODO добавить переход на экран "SignUp"
+            startActivity(new Intent(this, SignUpActivity.class));
         });
         signInTextView.setOnClickListener(v -> {
             // TODO добавить переход на экран "SignIn"
