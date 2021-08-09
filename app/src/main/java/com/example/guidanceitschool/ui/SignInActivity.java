@@ -55,7 +55,8 @@ public class SignInActivity extends AppCompatActivity {
             String password = passwordEditText.getText().toString();
 
             User user = getUserByEmail(email);
-            if (user.getEmail().equals(email)
+            if (user != null
+                    && user.getEmail().equals(email)
                     && user.getPassword().equals(password)) {
                 // TODO открыть main экран
             }
