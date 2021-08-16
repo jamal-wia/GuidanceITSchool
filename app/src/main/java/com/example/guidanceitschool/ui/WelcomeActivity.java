@@ -27,11 +27,10 @@ public class WelcomeActivity extends AppCompatActivity {
         signInTextView = findViewById(R.id.sign_in_text_welcome);
 
         signUpButton.setOnClickListener(v -> {
-            // TODO добавить переход на экран "SignUp"
             startActivity(new Intent(this, SignUpActivity.class));
         });
         signInTextView.setOnClickListener(v -> {
-            // TODO добавить переход на экран "SignIn"
+            startActivity(new Intent(this, SignInActivity.class));
         });
     }
 }

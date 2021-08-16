@@ -1,5 +1,6 @@
 package com.example.guidanceitschool.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -9,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.guidanceitschool.App;
 import com.example.guidanceitschool.R;
 import com.example.guidanceitschool.database.User;
+import com.example.guidanceitschool.ui.main.MainActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -58,7 +60,9 @@ public class SignInActivity extends AppCompatActivity {
             if (user != null
                     && user.getEmail().equals(email)
                     && user.getPassword().equals(password)) {
-                // TODO открыть main экран
+                Intent intent = new Intent(this, MainActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
             }
         });
     }

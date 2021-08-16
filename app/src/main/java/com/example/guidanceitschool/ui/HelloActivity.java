@@ -8,6 +8,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.guidanceitschool.R;
+import com.example.guidanceitschool.ui.main.MainActivity;
 
 public class HelloActivity extends AppCompatActivity {
 
@@ -30,7 +31,9 @@ public class HelloActivity extends AppCompatActivity {
 
         helloTextView.setText("Добро пожаловать, " + name + "!");
         forwardButton.setOnClickListener(v -> {
-            startActivity(new Intent(this, MainActivity.class));
+            Intent intent = new Intent(this, MainActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
         });
     }
 }
