@@ -5,6 +5,9 @@
       <map>
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.16203703703703703" />
         <entry key="app/src/main/res/layout/activity_sign_in.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_topic.xml" value="0.25384615384615383" />
+        <entry key="app/src/main/res/layout/fragment_practical_topic.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/fragment_theoretical_topic.xml" value="0.23148148148148148" />
         <entry key="app/src/main/res/layout/item_lesson.xml" value="0.25" />
       </map>
     </option>
